@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg3" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb923c;stop-opacity:0.35"/>
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg3)"/>
+  <circle cx="960" cy="540" r="600" fill="url(#accent3)" opacity="0.5"/>
+  <circle cx="1700" cy="200" r="300" fill="url(#accent3)" opacity="0.3"/>
+  <!-- Multiple lanyards display -->
+  <g transform="translate(1000, 200)">
+    <!-- Lanyard 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="120" height="160" rx="8" fill="#f97316" opacity="0.7"/>
+      <line x1="60" y1="160" x2="60" y2="400" stroke="#f97316" stroke-width="6"/>
+      <circle cx="60" cy="420" r="15" fill="#fb923c"/>
+    </g>
+    <!-- Lanyard 2 -->
+    <g transform="translate(150, 50)">
+      <rect x="0" y="0" width="120" height="160" rx="8" fill="#ea580c" opacity="0.8"/>
+      <line x1="60" y1="160" x2="60" y2="380" stroke="#ea580c" stroke-width="6"/>
+      <circle cx="60" cy="400" r="15" fill="#f97316"/>
+    </g>
+    <!-- Lanyard 3 -->
+    <g transform="translate(300, 20)">
+      <rect x="0" y="0" width="120" height="160" rx="8" fill="#fb923c" opacity="0.6"/>
+      <line x1="60" y1="160" x2="60" y2="420" stroke="#fb923c" stroke-width="6"/>
+      <circle cx="60" cy="440" r="15" fill="#fdba74"/>
+    </g>
+  </g>
+</svg>

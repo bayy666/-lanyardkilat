@@ -1,0 +1,366 @@
+@import 'tailwindcss';
+
+/* Root Variables - Clean & Professional */
+:root {
+    --primary: #FF6B35;
+    --dark: #1a1a1a;
+    --gray: #6b7280;
+    --light-gray: #f3f4f6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #ffffff;
+}
+
+/* ========================================
+   ELEGANT SCROLL REVEAL ANIMATIONS
+   ======================================== */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+[data-reveal].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered reveal delays */
+[data-reveal-delay="1"] { transition-delay: 0.1s; }
+[data-reveal-delay="2"] { transition-delay: 0.2s; }
+[data-reveal-delay="3"] { transition-delay: 0.3s; }
+[data-reveal-delay="4"] { transition-delay: 0.4s; }
+[data-reveal-delay="5"] { transition-delay: 0.5s; }
+
+/* Reveal from different directions */
+[data-reveal="left"] {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+[data-reveal="right"] {
+    opacity: 0;
+    transform: translateX(40px);
+}
+[data-reveal="scale"] {
+    opacity: 0;
+    transform: scale(0.95);
+}
+[data-reveal="left"].is-revealed,
+[data-reveal="right"].is-revealed,
+[data-reveal="scale"].is-revealed {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+/* ========================================
+   SMOOTH IMAGE HOVER EFFECTS
+   ======================================== */
+.img-zoom {
+    overflow: hidden;
+}
+.img-zoom img {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom:hover img {
+    transform: scale(1.05);
+}
+
+/* Elegant image reveal on load */
+.img-reveal {
+    position: relative;
+    overflow: hidden;
+}
+.img-reveal::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #e8e4df;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-reveal.revealed::after {
+    transform: scaleX(0);
+}
+
+/* ========================================
+   BUTTON & LINK HOVER EFFECTS
+   ======================================== */
+.btn-elegant {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+.btn-elegant::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: currentColor;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+.btn-elegant:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 0.05;
+}
+
+/* Magnetic hover effect for buttons */
+.btn-magnetic {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-magnetic:hover {
+    transform: translateY(-2px);
+}
+.btn-magnetic:active {
+    transform: translateY(0);
+}
+
+/* Underline animation for links */
+.link-underline {
+    position: relative;
+    text-decoration: none;
+}
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ========================================
+   CARD HOVER EFFECTS
+   ======================================== */
+.card-hover {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+}
+
+/* Subtle lift effect */
+.card-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+}
+
+/* Border glow on hover */
+.card-glow {
+    transition: box-shadow 0.4s ease;
+}
+.card-glow:hover {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05),
+                0 20px 40px -15px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   TEXT ANIMATIONS
+   ======================================== */
+.text-reveal {
+    overflow: hidden;
+}
+.text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.text-reveal.revealed span {
+    transform: translateY(0);
+}
+
+/* Fade up text */
+.text-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.text-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   SMOOTH PAGE TRANSITIONS
+   ======================================== */
+.page-transition {
+    animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   FLOATING ANIMATION
+   ======================================== */
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* ========================================
+   PULSE GLOW EFFECT
+   ======================================== */
+.pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    50% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+}
+
+/* ========================================
+   PARALLAX EFFECT (CSS only)
+   ======================================== */
+.parallax-container {
+    perspective: 1000px;
+}
+.parallax-slow {
+    transform: translateZ(-50px) scale(1.05);
+}
+.parallax-fast {
+    transform: translateZ(50px) scale(0.95);
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR - Elegant
+   ======================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Selection */
+::selection {
+    background: #1f2937;
+    color: white;
+}
+
+/* ========================================
+   INFINITE MARQUEE
+   ======================================== */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* ========================================
+   LOADING SKELETON
+   ======================================== */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton 1.5s ease-in-out infinite;
+}
+@keyframes skeleton {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ========================================
+   SMOOTH COUNTER ANIMATION
+   ======================================== */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ========================================
+   BLUR ON SCROLL (subtle)
+   ======================================== */
+.blur-on-scroll {
+    transition: filter 0.3s ease;
+}
+
+/* ========================================
+   ACCESSIBILITY - Respect user preferences
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+
+    .animate-marquee {
+        animation: none;
+    }
+}
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}

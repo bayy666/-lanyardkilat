@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="50%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg2)"/>
+  <ellipse cx="1500" cy="300" rx="500" ry="400" fill="url(#accent2)"/>
+  <ellipse cx="200" cy="900" rx="400" ry="300" fill="url(#accent2)" opacity="0.4"/>
+  <!-- Workshop/Production illustration -->
+  <g transform="translate(1100, 250)">
+    <rect x="0" y="100" width="500" height="350" rx="15" fill="#1e293b" stroke="#f97316" stroke-width="2" opacity="0.7"/>
+    <!-- Machine -->
+    <rect x="50" y="150" width="180" height="250" rx="10" fill="#334155"/>
+    <rect x="70" y="180" width="140" height="80" rx="5" fill="#0f172a"/>
+    <circle cx="140" cy="350" r="30" fill="#f97316" opacity="0.8"/>
+    <!-- Output lanyards -->
+    <rect x="280" y="200" width="150" height="10" rx="5" fill="#f97316" opacity="0.6"/>
+    <rect x="280" y="230" width="150" height="10" rx="5" fill="#f97316" opacity="0.5"/>
+    <rect x="280" y="260" width="150" height="10" rx="5" fill="#f97316" opacity="0.4"/>
+    <rect x="280" y="290" width="150" height="10" rx="5" fill="#f97316" opacity="0.3"/>
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustrasi Lanyard 1.5 cm">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F9FAFB"/>
+      <stop offset="1" stop-color="#F3F4F6"/>
+    </linearGradient>
+    <linearGradient id="strap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="32" fill="url(#bg)"/>
+  <circle cx="650" cy="120" r="110" fill="#F97316" opacity="0.08"/>
+  <circle cx="120" cy="520" r="140" fill="#111827" opacity="0.04"/>
+
+  <!-- Strap -->
+  <path d="M300 80c0-18 14-32 32-32h136c18 0 32 14 32 32v180c0 38-24 72-60 86l-44 16c-22 8-36 29-36 52v84c0 18-14 32-32 32s-32-14-32-32v-84c0-50 31-94 78-112l44-16c12-4 20-15 20-28V80c0-6-4-10-10-10H332c-6 0-10 4-10 10v220c0 13 8 24 20 28l44 16c47 18 78 62 78 112v42c0 18-14 32-32 32s-32-14-32-32v-42c0-23-14-44-36-52l-44-16c-36-14-60-48-60-86V80z" fill="url(#strap)"/>
+
+  <!-- Stitch line -->
+  <path d="M400 72v340" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 14"/>
+
+  <!-- Hook -->
+  <g transform="translate(380 420)">
+    <rect x="-60" y="0" width="120" height="28" rx="14" fill="#111827" opacity="0.18"/>
+    <path d="M0 22c36 0 58 26 58 58v46c0 34-28 62-62 62s-62-28-62-62V80c0-54 42-96 96-96h18" fill="none" stroke="#111827" stroke-opacity="0.55" stroke-width="18" stroke-linecap="round"/>
+    <path d="M88-4h-48" stroke="#111827" stroke-opacity="0.55" stroke-width="18" stroke-linecap="round"/>
+  </g>
+
+  <!-- Label -->
+  <g font-family="ui-sans-serif, system-ui" fill="#111827">
+    <text x="48" y="78" font-size="28" font-weight="700">Lanyard 1.5 cm</text>
+    <text x="48" y="112" font-size="16" opacity="0.7">Ilustrasi produk (placeholder)</text>
+  </g>
+</svg>
