@@ -30,9 +30,48 @@
             font-weight: 500;
             letter-spacing: 0.02em;
         }
+
+        /* Force navbar to be fixed */
+        nav.fixed {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 9999 !important;
+        }
+
+        /* Ensure sidebar and overlay are always on top */
+        [data-sidebar-overlay],
+        [data-sidebar] {
+            position: fixed !important;
+            z-index: 2147483645 !important;
+        }
+        [data-sidebar-overlay] {
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            z-index: 2147483644 !important;
+        }
+        [data-sidebar] {
+            top: 0 !important;
+            left: 0 !important;
+            height: 100vh !important;
+            z-index: 2147483645 !important;
+        }
+
+        /* Prevent sections from creating new stacking context that breaks fixed positioning */
+        section {
+            transform: none !important;
+            contain: none !important;
+        }
     </style>
 
     @stack('styles')
+
+    <!-- Scripts - Load Alpine.js first -->
+    <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
@@ -46,10 +85,6 @@
 
     <!-- Footer -->
     @include('layouts.partials.footer')
-
-    <!-- Scripts -->
-    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- WhatsApp Floating Button - Created via JavaScript to bypass CSS transform issues -->
     <script>
@@ -79,7 +114,41 @@
     })();
     </script>
 
+    <!-- Force Navbar Fixed Position via JavaScript - Same technique as WhatsApp button -->
+    <script>
+    (function() {
+        // Find the navbar
+        var navbar = document.querySelector('#main-navbar');
+        if (navbar) {
+            // Remove navbar from current position
+            navbar.parentNode.removeChild(navbar);
+
+            // Apply inline styles directly - same as WhatsApp button
+            navbar.style.cssText = 'position:fixed;top:0;left:0;right:0;width:100%;z-index:2147483646;background-color:white;border-bottom:1px solid #e5e7eb;transition:all 0.3s ease;';
+
+            // Append directly to documentElement (html) instead of body - SAME AS WHATSAPP
+            document.documentElement.appendChild(navbar);
+
+            // Add scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 20) {
+                    navbar.style.backgroundColor = 'rgba(255,255,255,0.85)';
+                    navbar.style.backdropFilter = 'blur(16px)';
+                    navbar.style.webkitBackdropFilter = 'blur(16px)';
+                    navbar.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)';
+                    navbar.style.borderBottom = '1px solid rgba(229,231,235,0.5)';
+                } else {
+                    navbar.style.backgroundColor = 'white';
+                    navbar.style.backdropFilter = 'none';
+                    navbar.style.webkitBackdropFilter = 'none';
+                    navbar.style.boxShadow = 'none';
+                    navbar.style.borderBottom = '1px solid #e5e7eb';
+                }
+            });
+        }
+    })();
+    </script>
+
     @stack('scripts')
 </body>
-</html>
 </html>

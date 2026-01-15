@@ -202,7 +202,6 @@ if ($searchQuery) {
 <section class="py-20 bg-[#e8e4df]" data-reveal>
     <div class="w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
         <div class="text-center max-w-2xl mx-auto">
-            <p class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-4">💬 KONSULTASI GRATIS</p>
             <h2 class="text-3xl sm:text-4xl text-gray-900 mb-6">
                 Butuh Bantuan Memilih Produk?
             </h2>

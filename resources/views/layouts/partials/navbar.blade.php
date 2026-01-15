@@ -1,5 +1,8 @@
-<nav x-data="{ sidebarOpen: false, searchOpen: false }"
-    class="fixed w-full top-0 z-50 bg-white border-b border-gray-200">
+<nav x-data="{ sidebarOpen: false, searchOpen: false, scrolled: false }"
+    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 20 })"
+    :class="scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-transparent' : 'bg-white border-gray-200'"
+    class="fixed w-full top-0 z-[9999] border-b transition-all duration-300"
+    id="main-navbar">
     <div class="w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
         <div class="flex justify-between items-center h-20">
 
@@ -91,6 +94,7 @@
     <!-- Sidebar Overlay -->
     <div x-show="sidebarOpen"
          x-cloak
+         data-sidebar-overlay
          @click="sidebarOpen = false"
          x-transition:enter="transition-opacity ease-out duration-300"
          x-transition:enter-start="opacity-0"
@@ -98,19 +102,20 @@
          x-transition:leave="transition-opacity ease-in duration-200"
          x-transition:leave-start="opacity-100"
          x-transition:leave-end="opacity-0"
-         class="fixed inset-0 bg-black/30 z-40">
+         style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.3);z-index:2147483640;">
     </div>
 
     <!-- Sidebar -->
     <div x-show="sidebarOpen"
          x-cloak
+         data-sidebar
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="-translate-x-full"
          x-transition:enter-end="translate-x-0"
          x-transition:leave="transition ease-in duration-200"
          x-transition:leave-start="translate-x-0"
          x-transition:leave-end="-translate-x-full"
-         class="fixed top-0 left-0 w-80 h-full bg-gray-100 z-50 overflow-y-auto">
+         style="position:fixed;top:0;left:0;width:320px;height:100%;background:#f3f4f6;z-index:2147483645;overflow-y:auto;">
 
         <!-- Sidebar Header -->
         <div class="p-6 border-b border-gray-200 bg-white">

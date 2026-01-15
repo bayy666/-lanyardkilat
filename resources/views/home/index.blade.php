@@ -359,12 +359,15 @@
 </section>
 
 <!-- Keunggulan Kami - Minimalist Slider -->
-<section class="py-24 bg-[#e8e4df]" data-reveal>
-    <div class="w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
+<section class="py-24 bg-[#e8e4df] relative overflow-hidden" data-reveal>
+    <!-- Batik Pattern Background -->
+    <div class="absolute inset-0" style="background-image: url('{{ asset('images/batik-bg.jpeg') }}'); background-repeat: no-repeat; background-size: cover; background-position: center; opacity: 1;"></div>
+
+    <div class="w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 relative z-10">
 
         <!-- Section Header -->
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl text-gray-900 italic">Keunggulan Kami</h2>
+            <h2 class="text-3xl md:text-4xl text-gray-900 italic">Kenapa Harus Lanyard Kendal?</h2>
         </div>
 
         <div x-data="{ activeSlide: 0, totalSlides: 3 }" class="relative">
@@ -898,8 +901,11 @@
 </section>
 
 <!-- Cara Pemesanan Section -->
-<section class="py-20 bg-[#e8e4df]">
-    <div class="w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24">
+<section class="py-20 bg-[#e8e4df] relative overflow-hidden">
+    <!-- Batik Pattern Background -->
+    <div class="absolute inset-0" style="background-image: url('{{ asset('images/batik-bg.jpeg') }}'); background-repeat: no-repeat; background-size: cover; background-position: center; opacity: 1;"></div>
+
+    <div class="w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-24 relative z-10">
         <!-- Header -->
         <div class="text-center mb-16" data-reveal>
             <span class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-4 block">Cara Pemesanan</span>
@@ -1021,13 +1027,13 @@
             }
          }">
 
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">Kata Mereka Tentang</h2>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">Layanan Kami?</h2>
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Kata Mereka Tentang</h2>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Layanan Kami?</h2>
         </div>
 
         <!-- Avatar Carousel - Horizontal sliding -->
-        <div class="relative h-48 md:h-56 lg:h-64 mb-12 overflow-hidden">
+        <div class="relative h-32 md:h-36 lg:h-40 mb-8 overflow-hidden">
             <div class="absolute inset-0 flex items-center justify-center">
                 <template x-for="(testimonial, index) in testimonials" :key="index">
                     <button x-on:click="selectTestimonial(index)"
@@ -1035,13 +1041,13 @@
                             :class="[
                                 testimonial.border,
                                 currentTestimonial === index
-                                    ? 'w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 border-4 ring-4 ring-sky-400/50 z-30'
+                                    ? 'w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 border-3 ring-3 ring-sky-400/50 z-30'
                                     : Math.abs(getPosition(index)) === 1
-                                        ? 'w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 border-4 z-20 opacity-80 hover:opacity-100'
-                                        : 'w-14 h-14 md:w-18 md:h-18 lg:w-20 lg:h-20 border-3 z-10 opacity-50 hover:opacity-70'
+                                        ? 'w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 border-2 z-20 opacity-80 hover:opacity-100'
+                                        : 'w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 border-2 z-10 opacity-50 hover:opacity-70'
                             ]"
                             :style="{
-                                transform: 'translateX(' + (getPosition(index) * (window.innerWidth < 768 ? 100 : window.innerWidth < 1024 ? 160 : 200)) + 'px) scale(' + (currentTestimonial === index ? 1 : Math.abs(getPosition(index)) === 1 ? 0.85 : 0.7) + ')',
+                                transform: 'translateX(' + (getPosition(index) * (window.innerWidth < 768 ? 70 : window.innerWidth < 1024 ? 110 : 140)) + 'px) scale(' + (currentTestimonial === index ? 1 : Math.abs(getPosition(index)) === 1 ? 0.85 : 0.7) + ')',
                             }">
                         <img :src="testimonial.avatar" :alt="testimonial.name" class="w-full h-full object-cover">
                     </button>
@@ -1052,39 +1058,67 @@
         <!-- Testimonial Card with Slider -->
         <div class="max-w-4xl mx-auto">
             <!-- Name & Role -->
-            <div class="text-center mb-6">
-                <p class="text-sky-600 font-semibold text-xl md:text-2xl" x-text="'— ' + testimonials[currentTestimonial].name"></p>
-                <p class="text-base md:text-lg text-gray-500" x-text="testimonials[currentTestimonial].role"></p>
+            <div class="text-center mb-4">
+                <p class="text-sky-600 font-semibold text-base md:text-lg" x-text="'— ' + testimonials[currentTestimonial].name"></p>
+                <p class="text-sm md:text-base text-gray-500" x-text="testimonials[currentTestimonial].role"></p>
             </div>
 
             <!-- Testimonial Card -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 transition-all duration-300">
-                <div class="text-center">
-                    <!-- Quote Icon -->
-                    <svg class="w-14 h-14 md:w-16 md:h-16 text-sky-200 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            <div class="relative">
+                <!-- Arrow Left -->
+                <button x-on:click="currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-12 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-900 hover:shadow-xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
+                </button>
 
-                    <!-- Testimonial Text -->
-                    <blockquote class="text-gray-700 text-xl md:text-2xl leading-relaxed mb-6" x-text="testimonials[currentTestimonial].text"></blockquote>
+                <!-- Arrow Right -->
+                <button x-on:click="currentTestimonial = (currentTestimonial + 1) % testimonials.length"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-12 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-900 hover:shadow-xl transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
 
-                    <!-- Rating Stars -->
-                    <div class="flex justify-center text-yellow-400 text-2xl md:text-3xl mb-4 gap-1">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                <div class="bg-white rounded-2xl shadow-xl p-5 md:p-8 transition-all duration-300">
+                    <div class="text-center">
+                        <!-- Quote Icon -->
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-sky-200 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+
+                        <!-- Testimonial Text -->
+                        <blockquote class="text-gray-700 text-base md:text-lg leading-relaxed mb-4" x-text="testimonials[currentTestimonial].text"></blockquote>
+
+                        <!-- Rating Stars -->
+                        <div class="flex justify-center text-yellow-400 text-lg md:text-xl mb-3 gap-0.5">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+
+                        <!-- Product Badge -->
+                        <span class="inline-block px-4 py-1.5 bg-sky-100 text-sky-700 text-sm md:text-base font-medium rounded-full" x-text="testimonials[currentTestimonial].product"></span>
                     </div>
-
-                    <!-- Product Badge -->
-                    <span class="inline-block px-5 py-2 bg-sky-100 text-sky-700 text-base md:text-lg font-medium rounded-full" x-text="testimonials[currentTestimonial].product"></span>
                 </div>
             </div>
 
             <!-- Navigation Dots -->
-            <div class="flex justify-center gap-3 mt-8">
+            <div class="flex justify-center gap-2 mt-6">
                 <template x-for="(item, index) in testimonials" :key="index">
                     <button x-on:click="selectTestimonial(index)"
-                            :class="currentTestimonial === index ? 'bg-sky-500 w-10' : 'bg-gray-300 w-4 hover:bg-gray-400'"
-                            class="h-4 rounded-full transition-all duration-300"></button>
+                            :class="currentTestimonial === index ? 'bg-sky-500 w-8' : 'bg-gray-300 w-3 hover:bg-gray-400'"
+                            class="h-3 rounded-full transition-all duration-300"></button>
                 </template>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="text-center mt-8">
+                <a href="{{ route('testimoni') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                    Lihat Semua Testimoni
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
